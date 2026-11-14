@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LocalRankPro Portfolio</title>
+<meta name="description" content="AI chatbots for dental clinics. Answers patient questions 24/7, shares your booking link and emails your team the lead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#F4F8F8; --surface:#FFFFFF; --ink:#0E1F26; --muted:#3F555C; --line:#D6E3E4; --line2:#E4EDEE;
+  --accent:#0B6E78; --accent-dark:#08515A; --accent-soft:#E3F2F3; --accent-line:#B5D8DB; --dark:#0E1F26;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;margin:0;letter-spacing:-0.01em;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent)}
+a:hover{color:var(--accent-dark)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
+section{padding-block:72px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:24px}
+.col{flex:1 1 280px;min-width:0}
+
+/* nav */
+nav{border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:18px}
+.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px}
+.links{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px;font-weight:500}
+.links a{color:var(--ink);text-decoration:none;padding:8px 0}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-block:72px 64px}
+.hero-copy{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.hero h1{font-size:clamp(34px,6vw,52px);line-height:1.06;font-weight:700}
+.lead{font-size:18px;color:var(--muted);max-width:560px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-dark);color:#fff}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid #C3D4D6}
+.facts{flex:1 1 340px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 24px}
+.fact{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line2)}
+.fact:last-child{border-bottom:0}
+.fact span:first-child{color:var(--muted)}
+.fact strong{font-family:"Space Grotesk",sans-serif;font-size:20px;text-align:right}
+
+/* how */
+.how h2,.pack h2,.about h2,.demo h2{font-size:clamp(28px,4vw,36px)}
+.steps{margin-top:40px}
+.step h3{font-size:22px;margin:10px 0}
+.step p{color:var(--muted)}
+.limits{display:flex;flex-wrap:wrap;gap:24px;border-top:1px solid var(--line2);margin-top:40px;padding-top:32px}
+.limits div{flex:1 1 320px;min-width:0;color:var(--muted)}
+.limits b{display:block;color:var(--ink);margin-bottom:6px}
+
+/* demo */
+.demo .wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.demo-copy{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.demo-copy p{color:var(--muted);font-size:17px}
+.demo-note{font-size:14px;border-top:1px solid var(--line);padding-top:16px}
+.chat{flex:1 1 400px;min-width:0;max-width:560px;background:var(--surface);border:1px solid #C3D4D6;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.chat-head{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--accent);color:#fff;padding:12px 20px}
+.chat-head b{font-family:"Space Grotesk",sans-serif}
+.chat-head button{background:transparent;color:#fff;border:1px solid #7FC1C8;border-radius:6px;padding:8px 14px;min-height:44px;cursor:pointer;font:inherit;font-size:14px}
+.log{height:380px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px;background:var(--bg)}
+.msg{max-width:85%;border-radius:12px;padding:12px 16px}
+.bot{align-self:flex-start;background:var(--surface);border:1px solid var(--line)}
+.you{align-self:flex-end;background:var(--dark);color:#fff}
+.lead-note{align-self:flex-start;max-width:85%;background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:8px;padding:10px 14px;font-size:14px;color:var(--accent-dark)}
+.quick{display:flex;flex-wrap:wrap;gap:8px;padding:16px 20px;border-top:1px solid var(--line2)}
+.quick button{background:var(--surface);color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer;font:inherit;font-size:14px;font-weight:500}
+.quick button:hover{background:var(--accent-soft)}
+
+/* packages */
+.cards{margin-top:40px;align-items:stretch}
+.card{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px;border-radius:12px;padding:32px}
+.card.light{background:var(--bg);border:1px solid var(--line)}
+.card.dark{background:var(--dark);color:#fff}
+.card h3{font-size:24px}
+.price{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:44px;line-height:1.1}
+.price small{font-size:16px;font-weight:400;font-family:Inter,sans-serif}
+.card.light .price small,.card.light li{color:var(--muted)}
+.card.dark .price small{color:#B7CBCE}
+.card.dark li{color:#D3E2E4}
+.card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.fine{margin-top:24px;color:var(--muted);font-size:15px;max-width:720px}
+
+/* about + contact */
+.about .wrap{display:flex;flex-wrap:wrap;gap:48px}
+.about-copy{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.about-copy p{color:var(--muted);font-size:17px}
+.contact{flex:1 1 340px;min-width:0;align-self:flex-start;display:flex;flex-direction:column;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px}
+.contact h3{font-size:24px}
+.contact .mail{font-weight:600;font-size:18px;word-break:break-all}
+.contact p{color:var(--muted)}
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">LocalRankPro</div>
+    <div class="links">
+      <a href="#how">How it works</a>
+      <a href="#demo">Live demo</a>
+      <a href="#packages">Packages</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <div class="eyebrow">AI chatbots for dental clinics</div>
+      <h1>A patient messages at 9pm. Your clinic answers.</h1>
+      <p class="lead">I build a chatbot for your website or Instagram that answers common patient questions, shares your booking link, and emails your team the patient's name and number.</p>
+      <div class="btns">
+        <a class="btn primary" href="#demo">Try the live demo</a>
+        <a class="btn ghost" href="#packages">See packages</a>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span>Answers patient questions</span><strong>24/7</strong></div>
+      <div class="fact"><span>Sends your booking link</span><strong>Every chat</strong></div>
+      <div class="fact"><span>Lead alert to your inbox</span><strong>Name + phone</strong></div>
+      <div class="fact"><span>Starting price, one-time</span><strong>$199</strong></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="band how" id="how">
+  <section class="wrap">
+    <h2 style="max-width:640px">What happens when a patient writes to your clinic</h2>
+    <div class="row steps">
+      <div class="col step"><div class="eyebrow">Step 1</div><h3>The patient asks</h3><p>Opening hours, services, fees, insurance, what to do about a lost filling. The bot replies right away using answers you approved.</p></div>
+      <div class="col step"><div class="eyebrow">Step 2</div><h3>The bot points to a booking</h3><p>It shares your booking link, or asks for a name and phone number if the patient prefers a call back.</p></div>
+      <div class="col step"><div class="eyebrow">Step 3</div><h3>Your team gets an email</h3><p>The patient's name, number and question land in your inbox, so the front desk can follow up the next morning.</p></div>
+    </div>
+    <div class="limits">
+      <div><b>What the bot does</b>General questions, hours, services, location, booking links, collecting contact details for a call back.</div>
+      <div><b>What the bot never does</b>Diagnose, give treatment advice or quote a clinical outcome. Those questions go to your dentists, and urgent symptoms are pointed to emergency care.</div>
+    </div>
+  </section>
+</div>
+
+<div class="demo" id="demo">
+  <section class="wrap">
+    <div class="demo-copy">
+      <h2>Try it yourself</h2>
+      <p>Tap a question the way a patient would. This runs on a made-up clinic called Demo Dental, with scripted answers. Your version uses your clinic's real hours, services and booking link.</p>
+      <p class="demo-note">Demo only. Demo Dental is fictional and the booking link goes nowhere.</p>
+    </div>
+    <div class="chat" role="region" aria-label="Chatbot demo">
+      <div class="chat-head"><b>Demo Dental assistant</b><button type="button" id="reset">Restart</button></div>
+      <div class="log" id="log" aria-live="polite"></div>
+      <div class="quick" id="quick"></div>
+    </div>
+  </section>
+</div>
+
+<div class="band pack" id="packages">
+  <section class="wrap">
+    <h2 style="max-width:640px">Two packages, priced in US dollars</h2>
+    <div class="row cards">
+      <div class="card light">
+        <h3>Starter</h3>
+        <div class="price">$199 <small>one-time</small></div>
+        <ul>
+          <li>Website chatbot trained on your clinic's FAQs</li>
+          <li>Your booking link shared in every chat</li>
+          <li>Lead alert emails with name and phone</li>
+          <li>Handover guide for your front desk</li>
+        </ul>
+      </div>
+      <div class="card dark">
+        <h3>Care</h3>
+        <div class="price">$349 <small>setup</small> <span style="font-size:24px">+ $39</span> <small>per month</small></div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Chatbot on your Instagram or Facebook messages too</li>
+          <li>Monthly FAQ updates when your hours or services change</li>
+          <li>Monthly check of the chats and leads it handled</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Exact scope is confirmed with each clinic before any payment. If a clinic's current setup needs something different, the quote says so up front.</p>
+  </section>
+</div>
+
+<div class="about" id="contact">
+  <section class="wrap">
+    <div class="about-copy">
+      <h2>Who builds it</h2>
+      <p>I'm Waheed Murad, based in Islamabad, Pakistan. I build AI chatbots for dental clinics in Canada, the UK, Australia and the US. I'm starting out, so every early clinic gets my direct attention and a setup built around its own questions.</p>
+      <p>Work is done remotely and in English. You approve every answer the bot is allowed to give before it goes live.</p>
+    </div>
+    <div class="contact">
+      <h3>Get a demo for your clinic</h3>
+      <p>Email me your clinic name and I'll send a short demo using your own hours and services.</p>
+      <a class="mail" href="mailto:localrankpro.services@gmail.com">localrankpro.services@gmail.com</a>
+      <p style="font-size:15px">Islamabad, Pakistan. I reply within one working day.</p>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap"><div>LocalRankPro by Waheed Murad</div><div>AI chatbots for dental clinics</div></div>
+</footer>
+
+<script>
+(function () {
+  var qs = [
+    { label: 'What are your opening hours?', answer: 'Demo Dental is open Monday to Friday 8am to 6pm and Saturday 9am to 1pm. I can answer questions at any hour, including tonight.' },
+    { label: 'Do you accept my insurance?', answer: 'The team works with most major plans. Tell me your plan name and I will pass it to the front desk, who will confirm cover before your visit.' },
+    { label: 'I want to book a check-up', answer: 'You can book here: demo-dental.example/book. Prefer a call back? Send me your name and phone number and the team will ring you in the morning.', lead: true },
+    { label: 'I have a toothache', answer: 'I cannot give medical advice. If you have swelling, fever or trouble breathing, go to emergency care now. Otherwise I can ask the team to call you first thing in the morning.', lead: true }
+  ];
+  var log = document.getElementById('log');
+  var quick = document.getElementById('quick');
+
+  function add(cls, text) {
+    var d = document.createElement('div');
+    d.className = cls;
+    d.textContent = text;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+  }
+  function start() {
+    log.textContent = '';
+    add('msg bot', 'Hi, I am the assistant for Demo Dental. Ask me anything, or tap a question below.');
+  }
+  qs.forEach(function (q) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = q.label;
+    b.addEventListener('click', function () {
+      add('msg you', q.label);
+      add('msg bot', q.answer);
+      if (q.lead) add('lead-note', 'Email sent to the clinic: new patient enquiry with name and phone number.');
+    });
+    quick.appendChild(b);
+  });
+  document.getElementById('reset').addEventListener('click', start);
+  start();
+})();
+</script>
+</body>
+</html>
